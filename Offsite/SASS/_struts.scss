@@ -132,3 +132,9 @@
   box-shadow: $mode $offsetX $offsetY $blur $color;
 }
 
+%droppedField {  /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
+  background-color: $bg_white;
+  border-radius: 5%;
+  border: 3px solid mix($bg_pink, black, 95%);
+  @include shadow(mix($bg_pink, black, 90%), inset, 0px, 0px, 50px);
+}

@@ -1,6 +1,56 @@
 // Google Font Block
-// Update these to reflect the site specific branding. 
+@import url(http://fonts.googleapis.com/css?family=Cantata+One);
 
+@font-face {
+  font-family: cinchedTight;
+  src: url('../fonts/CHOPS__.eot');
+  src:  url('../fonts/CHOPS__.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CHOPS__.TTF') format('truetype');
+  
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'cinched_icons';
+  src:  url('../fonts/cinched_icons.eot');
+  src:  url('../fonts/cinched_icons.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/cinched_icons.woff') format('woff'),
+        url('../fonts/cinched_icons.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@mixin icon () { 
+  font-family: cinched_icons;
+  font-feature-settings:"liga","dlig";
+  text-rendering:optimizeLegibility;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+  
+}
+
+
+@mixin bodyFont {
+  font-family: 'Cantata One', serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+@mixin titleFont {
+  font-family: 'cinchedTight', cursive;
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+  font-size: 2rem;
+}
 // Includes 
   // Variables (layers and mq/bp sizes)
   @import "layers";

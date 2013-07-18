@@ -1,10 +1,171 @@
 /* _structure.scss  provides structural elements for layout. */
   
 html {
-  height: 99%; 
+  height: 99%;
+  font-size: 16px; 
 }
 
 body {
   height: 100%;
 }
 
+.greeting, .parting {
+	z-index: $front;
+  color: $text_dark;
+  position: absolute;
+  width: 30rem;
+  left: 50%;
+  margin-left: -15rem;
+  text-align: center;
+  @extend %droppedField;
+  
+}
+
+
+.greeting {
+  padding-bottom: 2rem;
+  padding-top: 4rem;
+  top: -.25rem;
+  
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  
+  & ul {
+    margin: -4rem 0 2.5rem -1rem;
+    &:after {
+      opacity: .1;
+      position: absolute;
+      content: '';
+      width: 90%;
+      height: 0;
+      left: 5%;
+      top: 31%;
+      border-top: 1px solid white;
+      border-bottom: 1px solid black; }
+  }
+  
+  & .icon {
+  	width: 2rem;
+    display: inline-block;
+    margin: 0 2rem;
+    position: relative;
+
+  	& a {
+    	position: absolute; 
+      top: 0;
+      left: 0;
+      @include icon();
+      font-size: 2rem;
+      text-decoration: none;
+      color: mix($bg_pink, black, 90%);
+      text-shadow: 1px 1px 1px mix($bg_pink, black, 50%);
+      transition: color .25s, text-shadow .25s, font-size .25s, margin .25s;
+
+      &:hover {
+      	border: none;
+        color: mix($bg_pink, white, 90%); }
+        
+      &:active {
+      	border: none;
+        margin-top: -.25rem; 
+        margin-left: -.25rem;
+        font-size: 2.5rem;  
+        text-shadow: 3px 3px 5px mix($bg_pink, black, 50%); }
+    }
+  }
+  
+  & h1 {
+    @include titleFont();
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+   }
+  & blockquote {
+    @include titleFont();
+    font-size: 1.5rem;
+    position: absolute;
+    top: 8rem;
+    left: 9rem;
+    }
+}
+
+.parting {
+  @include bodyFont();
+  
+  bottom: 0;
+  
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 7.5em;
+  padding: 2em 1em 1em;
+  
+}
+
+.container {
+	@include bodyFont();
+	z-index: $back;
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 93.25rem;
+  margin-left: -46rem;
+  
+  bottom: 1rem;
+/*  @extend %droppedField; */
+   
+}
+
+nav {
+	margin-top: -1.9rem;
+  
+  & ul li {
+    margin-bottom: .25rem;
+  	padding: 0;
+  	position: relative;
+    border-radius: 20%;
+    display: inline-block;
+    &:nth-of-type(3), &:nth-of-type(8) {
+    margin-left: 33rem;
+    }
+  	& a {
+  		text-align: center;
+      @extend %droppedField;
+      color: mix($bg_pink, black, 20%);
+      text-shadow: 0px 0px 0px mix($bg_pink, black, 50%);
+      padding: .25rem .75rem;
+      transition: background-color .3s, color .3s, text-shadow .3s;
+  	  @include titleFont{};
+      font-size: 1.75rem;
+      &:hover {
+        background-color: mix($bg_pink, white, 30%);
+        text-shadow: 1px 1px 1px mix($bg_pink, black, 80%);
+       color: mix($bg_pink, black, 10%);
+
+      }
+    }
+    &.widest {
+      width: 15rem;
+    }
+    
+    &.wide {
+      width: 14rem;
+    }
+    
+    &.narrow {
+      width: 12rem;
+    }
+    
+    &.narrower {
+      width: 11rem;
+    }
+    
+    &.narrowest {
+      width: 7rem;
+    }
+  }
+}
