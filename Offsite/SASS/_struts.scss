@@ -132,9 +132,30 @@
   box-shadow: $mode $offsetX $offsetY $blur $color;
 }
 
+@mixin textShadow($color, $offsetX: 1px, $offsetY: 1px, $blur: 1px) {
+  text-shadow: $offsetX $offsetY $blur $color;
+}
+
+
 %droppedField {  /* A border to fake drop shadow style pooling which isn't working as desired in this context. */
   background-color: $bg_white;
   border-radius: 5%;
-  border: 3px solid mix($bg_pink, black, 95%);
+  border: 2px solid mix($bg_pink, black, 95%);
   @include shadow(mix($bg_pink, black, 90%), inset, 0px, 0px, 50px);
+}
+
+%iconButton {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  @include icon();
+  font-size: 2rem;
+  text-decoration: none;
+  color: mix($bg_pink, black, 90%);
+  text-shadow: 2px 2px 1px mix($bg_pink, black, 50%);
+  transition: color .25s, text-shadow .25s, font-size .25s, margin .25s;
+  
+  &:hover {
+    border: none;
+    color: mix($bg_pink, white, 90%); }
 }

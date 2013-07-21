@@ -1,4 +1,30 @@
 $bg_pink: #F8E1ED;
 $bg_white: #FFFFFF;
+$bg_blue: blue;
+$bg_red: red;
 
 $text_dark: #333;
+
+
+@mixin baseGradient($base) {
+  background: -moz-radial-gradient(center, ellipse cover, mix($base, white, 30%) 22%, mix($base, white, 40%) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(22%, mix($base, white, 30%)), color-stop(100%,mix($base, white, 40%)));
+  background: -webkit-radial-gradient(center, ellipse cover, mix($base, white, 30%) 22%, mix($base, white, 40%) 100%);
+  background: -o-radial-gradient(center, ellipse cover, mix($base, white, 30%) 22%, mix($base, white, 40%) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, mix($base, white, 30%) 22%, mix($base, white, 40%) 100%);
+  background: radial-gradient(center, ellipse cover, mix($base, white, 30%) 22%, mix($base, white, 40%) 100%);
+  
+}
+
+
+@mixin buttonGradient($base) {
+  @include baseGradient($base);
+  
+  &:hover {
+    @include baseGradient(lighten($base, 10%));
+  }
+  
+  &:active {
+  	  @include baseGradient(darken($base, 10%));
+  }
+}

@@ -3,3 +3,71 @@ html {
   background-image: url("../images/background_tile.jpg");
   background-repeat: repeat; 
 }
+
+.product {
+  order: 1;
+  box-ordinal-group: 1;
+  flex-order: 1;
+	@include applyWiderThan($queen) {
+    & a { 
+      background-color: mix(red, white, 5%) !important;
+  	}
+  }
+  
+  @include applyNarrowerThan($queen) {
+  	& a {
+      background-color: mix($bg_red, white, 10%) !important;
+      
+      &:hover, &:active {
+        background-color: mix($bg_red, white, 20%) !important;
+      }
+  	}
+  }
+}
+
+.support {
+  order: 2;
+  box-ordinal-group: 2;
+  flex-order: 2;  
+  @include applyNarrowerThan($queen) {
+    & a {
+      background-color: mix($bg_blue, white, 10%) !important;
+      
+      &:hover, &:active {
+          background-color: mix($bg_blue, white, 20%) !important;
+      }
+    }
+  }
+  
+  @include applyWiderThan($queen) {
+    & a {
+      background-color: mix($bg_blue, white, 5%) !important;
+    }
+  }
+}
+
+
+.button {
+  border: none;
+  color: #ffffff;
+  width: 99%;
+  padding: 2rem;
+  text-align: center;
+  line-height: 2.2rem;
+  border-radius: .6rem;
+  @include applyWiderThan($queen) {
+  	line-height: 1.375rem; 
+  	border-radius: .375rem;
+  	padding: 1rem; }
+  
+  text-decoration: none;
+  text-shadow: none;
+  transition: 0.25s;
+  backface-visibility: hidden;
+  appearance: none;
+}
+
+.login {
+	@include buttonGradient($bg_blue);
+	@include shadow(mix($bg_pink, black, 60%));
+}

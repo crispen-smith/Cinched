@@ -80,7 +80,7 @@ $tenSixteen: '10/16';
 
 // width break;  recieves @content and pipes it into a  @media (min-width = ) style format.
 @mixin applyNarrowerThan($width) {
-  @media(max-width: $point) { @content; }
+  @media(max-width: $width) { @content; }
 }
 
 @mixin applyBetweenWidths($minWidth, $maxWidth) {
@@ -88,7 +88,7 @@ $tenSixteen: '10/16';
 }
 
 @mixin applyWiderThan($width) {
-  @media(min-width: $point) { @content; }
+  @media(min-width: $width) { @content; }
 }
 
 
