@@ -21,10 +21,10 @@ $text_dark: #333;
   @include baseGradient($base);
   
   &:hover {
-    @include baseGradient(lighten($base, 10%));
+    @include baseGradient(lighten($base, 20%));
   }
   
   &:active {
-  	  @include baseGradient(darken($base, 10%));
+  	  @include baseGradient(darken($base, 20%));
   }
 }

@@ -8,6 +8,7 @@ html {
   order: 1;
   box-ordinal-group: 1;
   flex-order: 1;
+  background-color: mix($bg_red, white, 10%) !important;
 	@include applyWiderThan($queen) {
     & a { 
       background-color: mix(red, white, 5%) !important;
@@ -16,12 +17,11 @@ html {
   
   @include applyNarrowerThan($queen) {
   	& a {
-      background-color: mix($bg_red, white, 10%) !important;
       
-      &:hover, &:active {
-        background-color: mix($bg_red, white, 20%) !important;
-      }
   	}
+  }
+  & a:hover, & a:active {
+    background-color: mix($bg_red, white, 20%) !important;
   }
 }
 
@@ -33,9 +33,6 @@ html {
     & a {
       background-color: mix($bg_blue, white, 10%) !important;
       
-      &:hover, &:active {
-          background-color: mix($bg_blue, white, 20%) !important;
-      }
     }
   }
   
@@ -44,12 +41,19 @@ html {
       background-color: mix($bg_blue, white, 5%) !important;
     }
   }
+  
+  & a:hover, & a:active {
+      background-color: mix($bg_blue, white, 20%) !important;
+  }
 }
 
 
 .button {
   border: none;
-  color: #ffffff;
+  font-weight: 800;
+  color: rgba(0,0,0, .3);
+  font-size: 3rem;
+  
   width: 99%;
   padding: 2rem;
   text-align: center;
@@ -58,10 +62,11 @@ html {
   @include applyWiderThan($queen) {
   	line-height: 1.375rem; 
   	border-radius: .375rem;
+  	font-size: 2rem;
   	padding: 1rem; }
   
   text-decoration: none;
-  text-shadow: none;
+  text-shadow: none; 
   transition: 0.25s;
   backface-visibility: hidden;
   appearance: none;

@@ -77,14 +77,11 @@ body {
 
   	& a {
   		@extend %iconButton;
+  		border: none;
+  		&:after {
+  		  border: none;
+		  }
 
-    &:active {
-      border: none;
-      margin-top: -.25rem; 
-      margin-left: -.25rem;
-      font-size: 2.5rem;  
-      @include textShadow(mix($bg_pink, black, 50%), 3px, 3px, 5px); }
-  		
     }
   }
   
@@ -215,7 +212,6 @@ body {
   		text-align: center;
       @extend %droppedField;
       color: mix($bg_pink, black, 20%);
-      @include textShadow(mix($bg_pink, black, 50%), 0px, 0px, 0px);
       padding: .1rem .75rem;
       transition: background-color .3s, color .3s, text-shadow .3s;
   	  @include titleFont{};
@@ -236,15 +232,6 @@ body {
       @include applyWiderThan($queen) {
         font-size: 1.5rem;
         padding: .4rem;
-      }
-      &:hover, &:active {
-      	@include textShadow(mix($bg_pink, black, 80%), 1px, 1px, 1px);
-       color: mix($bg_pink, black, 10%);
-       
-       @include applyWiderThan($queen) {
-         background-color: mix($bg_pink, white, 30%) !important;
-       }
-
       }
     }
     &.widest {
@@ -273,10 +260,10 @@ body {
 }
 
 #menuButton {
+	@extend %droppedField;
 	z-index: $mid;
 	right: -1.5em;
  @extend %iconButton; 
- @extend %droppedField;
  top: 50%;
  left: auto;
  margin-top: -1em;
@@ -285,26 +272,18 @@ body {
  padding: 2rem 1rem 2rem .25rem;
  border-top-left-radius: 0;
  border-bottom-left-radius: 0;
- @include applyNarrowerThan($pawn) {
-   padding: .75rem .75rem .75rem 0; }
  
- &:hover {
-  border: 2px solid mix($bg_pink, black, 95%);
- }
  
  &:after {
    content: "";
-   @include shadow(mix($bg_pink, black, 80%), 0, 2px, 3px, 1px); 
-   width: 3.25rem;
-   height: 6rem;
+   @include shadow(mix($bg_pink, black, 60%)); 
+   width: 3.6rem;
+   height: 6.25rem;
    position: absolute;
    top: 0;
    left: 0;
    border-radius: 0 100% 100% 0;
    
-   @include applyNarrowerThan($pawn) {
-     width: 3rem;
-     height: 3.75rem; } 
    }
  
  @include applyWiderThan($queen) {
@@ -361,6 +340,7 @@ body {
   & .titleFrame {
     & H2 {
       @include titleFont; 
+      font-weight: 600;
       margin-bottom: .125rem; }
     & p {
       line-height: 1.25rem;
