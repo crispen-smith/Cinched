@@ -8,20 +8,19 @@ html {
   order: 1;
   box-ordinal-group: 1;
   flex-order: 1;
-  background-color: mix($bg_red, white, 10%) !important;
 	@include applyWiderThan($queen) {
-    & a { 
-      background-color: mix(red, white, 5%) !important;
+    &  a { 
+      background-color: mix($bg_red, white, 5%);
   	}
   }
   
   @include applyNarrowerThan($queen) {
-  	& a {
-      
+  	&  a {
+      background-color: mix($bg_red, white, 10%);
   	}
   }
-  & a:hover, & a:active {
-    background-color: mix($bg_red, white, 20%) !important;
+  &  a:hover, & >  a:active {
+    background-color: mix($bg_red, white, 15%);
   }
 }
 
@@ -30,20 +29,20 @@ html {
   box-ordinal-group: 2;
   flex-order: 2;  
   @include applyNarrowerThan($queen) {
-    & a {
-      background-color: mix($bg_blue, white, 10%) !important;
+    &  a {
+      background-color: mix($bg_blue, white, 5%);
       
     }
   }
   
   @include applyWiderThan($queen) {
-    & a {
-      background-color: mix($bg_blue, white, 5%) !important;
+    &  a {
+      background-color: mix($bg_blue, white, 10%);
     }
   }
   
-  & a:hover, & a:active {
-      background-color: mix($bg_blue, white, 20%) !important;
+  &  a:hover, & > a:active {
+      background-color: mix($bg_blue, white, 15%);
   }
 }
 
@@ -76,3 +75,22 @@ html {
 	@include buttonGradient($bg_blue);
 	@include shadow(mix($bg_pink, black, 60%));
 }
+
+.message {
+	margin: .5rem -.5rem;
+  padding: .5rem;
+  border: 2px solid rgba(mix($bg_pink, black, 80%), .3);
+  border-left: none;
+  border-right: none;
+  @include shadow(rgba(mix($bg_pink, black, 70%), .4), inset);
+  background-color: mix($bg_pink, white, 90%);
+  text-align: left;
+}
+
+.error {
+  @include shadow(mix($bg_red, black, 30%), inset, 2px, 2px, 10px) ;
+  border: mix($bg_red, black, 50%);}
+  
+.required {
+  @include shadow(mix($bg_red, black, 60%), inset, 2px, 2px, 10px);
+  border: mix($bg_red, black, 60%); }

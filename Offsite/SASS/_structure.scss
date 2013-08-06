@@ -30,8 +30,8 @@ body {
 }
 
 .greeting, .parting {
-	z-index: $midBack;
-  color: $text_dark;
+	z-index: $mid;
+	color: $text_dark;
   position: absolute;
   width: 30rem;
   left: 50%;
@@ -41,6 +41,7 @@ body {
   }
   text-align: center;
   @extend %droppedField;
+  background-color: white;
   
 }
 
@@ -74,6 +75,7 @@ body {
     display: inline-block;
     margin: 0 2rem;
     position: relative;
+    outline: none;
 
   	& a {
   		@extend %iconButton;
@@ -218,8 +220,6 @@ body {
         font-size: 1.75rem;
       @include applyNarrowerThan($queen) {
         padding: 1.5rem .75rem;
-        background: none;
-        background-color: $bg_pink;
         border: none;
 	      @include shadow(mix($bg_pink, black));
 	      
@@ -292,7 +292,7 @@ body {
 
 
 #loginForm {
-	z-index: $mid;
+	z-index: $front;
   position: absolute;
   width: 22rem;
   height: 26.75rem;
@@ -315,6 +315,7 @@ body {
   
   & .textWidget, & .titleFrame {
     @extend %droppedField;
+  	background-color: white;
   	&:after, &:before  {
   		position: absolute;
   		z-index: $midfront;
@@ -335,7 +336,11 @@ body {
   & .textWidget {
       & label, & input {
       @include bodyFont();
-      font-size: 1.4rem; } } 
+      font-size: 1.2rem; }
+      
+      & input {
+      padding: .25rem 1rem;
+      width: 90%;} } 
 
   & .titleFrame {
     & H2 {
