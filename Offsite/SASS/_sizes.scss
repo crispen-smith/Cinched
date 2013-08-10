@@ -8,6 +8,7 @@ $knight: 600px;
 $bishop: 800px;
 $queen: 1000px;
 $king: 1250px;
+$emporer: 1300px; 
 
 $whole: 100%;
 $half: 50%;
@@ -78,6 +79,13 @@ $nineFifteen: '9/15';
 $nineSixteen: '9/16';
 $tenSixteen: '10/16';
 
+/*PPI Ratios */
+$courseDigitalRes: 93dpi;
+$fineDigitalRes: 110dpi;
+$retinaRes: 200dpi;
+$printRes: 300dpi;
+
+
 // width break;  recieves @content and pipes it into a  @media (min-width = ) style format.
 @mixin applyNarrowerThan($width) {
   @media(max-width: $width) { @content; }
@@ -109,5 +117,9 @@ $tenSixteen: '10/16';
 //Ratio Breaks; useful for elements that are calculated in realtime and have a specific relationship with their aspect ratio.
 
 @mixin applyWhenScreenIs($ratio) {
-  @media(device-aspect: ratio) { @content; }
+  @media(device-aspect: $ratio) { @content; }
+}
+
+@mixin applyResHigherThan($res) {
+	@media(min-resolution: $res)  { @content; }
 }

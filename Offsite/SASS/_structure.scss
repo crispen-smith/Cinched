@@ -5,7 +5,10 @@ html {
   font-size: 16px; 
   @include applyNarrowerThan($king) {
     font-size: 10px;
-  } 
+  }
+  @include applyBetweenWidths($king, $emporer) {
+    font-size: 13px;
+  }
 }
 
 body {
@@ -291,7 +294,7 @@ body {
 }
 
 
-#loginForm {
+#accountForm {
 	z-index: $front;
   position: absolute;
   width: 22rem;
