@@ -28,7 +28,6 @@ body {
   
   &.open {
   	display: block;
-    cursor: progress;
   }
 }
 
@@ -139,7 +138,8 @@ body {
   }
   
   @include applyWiderThan($queen) {
-    position: absolute; }
+    position: absolute; 
+    top: 7rem; }
   
   bottom: 1rem;   
 }
@@ -169,7 +169,7 @@ body {
     text-align: center;   }
   
   @include applyWiderThan($queen) {
-  	margin-top: -1.9rem;
+  	top: -7rem;
   	width: 100%;    }
   
   &.closed {
@@ -292,21 +292,52 @@ body {
  @include applyWiderThan($queen) {
  display: none;}
 }
-
-
-#accountForm {
-	z-index: $front;
-  position: absolute;
+.formTopContainer {
+	position: absolute;
   width: 22rem;
   height: 26.75rem;
+
+  top: 50%;
+  left: 50%;
+
   margin-left: -11rem;
+  
+  overflow: scroll;
+  
   @include applyWiderThan($queen) {
    margin-left: -12rem;
   }
   margin-top: -13.375rem;
-  top: 50%;
-  left: 50%;
-  
+ 
+
+	&.scrollDown:after {
+	content: "";
+	position: absolute;
+	height: 2rem;
+	bottom: 0;
+	left: 0;
+	right: 0; 
+	background: -moz-linear-gradient(bottom, $bg_pink 0%,    rgba(red($bg_pink), green($bg_pink),blue($bg_pink),0) 100%);
+  background: -webkit-linear-gradient(bottom, $bg_pink 0%, rgba(red($bg_pink), green($bg_pink),blue($bg_pink),0) 100%);
+  background: -o-linear-gradient(bottom, $bg_pink 0%,      rgba(red($bg_pink), green($bg_pink),blue($bg_pink),0) 100%);
+  background: -ms-linear-gradient(bottom, $bg_pink 0%,     rgba(red($bg_pink), green($bg_pink),blue($bg_pink),0)100%);
+  background: linear-gradient(bottom, $bg_pink 0%,         rgba(red($bg_pink), green($bg_pink),blue($bg_pink),0) 100%);
+	z-index: $front; }
+	
+	
+}
+.formContainer {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  position: absolute;
+  overflow: scroll;
+}
+
+#accountForm {
+  width: 22rem;
+	
     
   & .textWidget, & .submitWidget, & .titleFrame {
     position: relative;
@@ -355,5 +386,11 @@ body {
       padding: 0 1rem; 
       text-align: left;
       margin-bottom: .25rem; }
-  } 
+  }
+}
+
+.title--vh1 {
+	font: {
+	size: 2rem;
+	weight: bold; }
 }
